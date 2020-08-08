@@ -7,7 +7,8 @@ env:
   - SPLUNK_VERSION=8.0.4.1 SPLUNK_VERSION_IDENTIFIER=ab7a85abaa98
 
 jobs:
-  - stage: test
-    script:
-      - docker build --tag splunk-$SPLUNK_VERSION --build-arg SPLUNK_VERSION=$SPLUNK_VERSION --build-arg SPLUNK_VERSION_IDENTIFIER=$SPLUNK_VERSION_IDENTIFIER .
-      - docker image ls
+  include:
+    - stage: test
+      script:
+        - docker build --tag splunk-$SPLUNK_VERSION --build-arg SPLUNK_VERSION=$SPLUNK_VERSION --build-arg SPLUNK_VERSION_IDENTIFIER=$SPLUNK_VERSION_IDENTIFIER .
+        - docker image ls
