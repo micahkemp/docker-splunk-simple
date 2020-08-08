@@ -2,13 +2,6 @@ language: minimal
 
 services: docker
 
-env:
-  - SPLUNK_VERSION=8.0.5   SPLUNK_VERSION_IDENTIFIER=a1a6394cc5ae
-  - SPLUNK_VERSION=8.0.4.1 SPLUNK_VERSION_IDENTIFIER=ab7a85abaa98
-
-jobs:
-  include:
-    - stage: test
-      script:
-        - docker build --tag splunk-$SPLUNK_VERSION --build-arg SPLUNK_VERSION=$SPLUNK_VERSION --build-arg SPLUNK_VERSION_IDENTIFIER=$SPLUNK_VERSION_IDENTIFIER .
-        - docker image ls
+script:
+  - dockercompoase build
+  - docker image ls

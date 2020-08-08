@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  8.0.5:
+    build:
+      context: .
+      args:
+        SPLUNK_VERSION: 8.0.5
+        SPLUNK_VERSION_IDENTIFIER: a1a6394cc5ae
+    image: ${REPO}/${IMAGE}:8.0.5-${BUILD_VERSION}
+  8.0.4.1:
+    build:
+      context: .
+      args:
+        SPLUNK_VERSION: 8.0.4.1
+        SPLUNK_VERSION_IDENTIFIER: ab7a85abaa98
+    image: ${REPO}/${IMAGE}:8.0.4.1-${BUILD_VERSION}
