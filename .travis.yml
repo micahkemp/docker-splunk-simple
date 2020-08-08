@@ -3,5 +3,5 @@ language: minimal
 services: docker
 
 script:
-  - dockercompoase build
+  - docker-compose build
   - docker image ls
