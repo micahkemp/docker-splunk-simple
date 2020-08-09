@@ -5,12 +5,173 @@ services:
       context: .
       args:
         SPLUNK_VERSION: 8.0.5
-        SPLUNK_VERSION_IDENTIFIER: a1a6394cc5ae
+        SPLUNK_BUILD: a1a6394cc5ae
+        SPLUNK_ADMIN_USERNAME: ${SPLUNK_ADMIN_USERNAME}
+        SPLUNK_ADMIN_PASSWORD: ${SPLUNK_ADMIN_PASSWORD}
     image: ${REPO}/${IMAGE}:8.0.5-${BUILD_VERSION}
+    command: &command bash -c "/opt/splunk/bin/splunk start --accept-license && curl -u ${SPLUNK_ADMIN_USERNAME}:${SPLUNK_ADMIN_PASSWORD} -k -f https://localhost:8089/services/authentication/current-context"
+
   8.0.4.1:
     build:
       context: .
       args:
         SPLUNK_VERSION: 8.0.4.1
-        SPLUNK_VERSION_IDENTIFIER: ab7a85abaa98
+        SPLUNK_BUILD: ab7a85abaa98
+        SPLUNK_ADMIN_USERNAME: ${SPLUNK_ADMIN_USERNAME}
+        SPLUNK_ADMIN_PASSWORD: ${SPLUNK_ADMIN_PASSWORD}
     image: ${REPO}/${IMAGE}:8.0.4.1-${BUILD_VERSION}
+    command: *command
+
+  8.0.4:
+    build:
+      context: .
+      args:
+        SPLUNK_VERSION: 8.0.4
+        SPLUNK_BUILD: 767223ac207f
+        SPLUNK_ADMIN_USERNAME: ${SPLUNK_ADMIN_USERNAME}
+        SPLUNK_ADMIN_PASSWORD: ${SPLUNK_ADMIN_PASSWORD}
+    image: ${REPO}/${IMAGE}:8.0.4-${BUILD_VERSION}
+    command: *command
+
+  8.0.3:
+    build:
+      context: .
+      args:
+        SPLUNK_VERSION: 8.0.3
+        SPLUNK_BUILD: a6754d8441bf
+        SPLUNK_ADMIN_USERNAME: ${SPLUNK_ADMIN_USERNAME}
+        SPLUNK_ADMIN_PASSWORD: ${SPLUNK_ADMIN_PASSWORD}
+    image: ${REPO}/${IMAGE}:8.0.3-${BUILD_VERSION}
+    command: *command
+
+  8.0.2.1:
+    build:
+      context: .
+      args:
+        SPLUNK_VERSION: 8.0.2.1
+        SPLUNK_BUILD: f002026bad55
+        SPLUNK_ADMIN_USERNAME: ${SPLUNK_ADMIN_USERNAME}
+        SPLUNK_ADMIN_PASSWORD: ${SPLUNK_ADMIN_PASSWORD}
+    image: ${REPO}/${IMAGE}:8.0.2.1-${BUILD_VERSION}
+    command: *command
+
+  8.0.2:
+    build:
+      context: .
+      args:
+        SPLUNK_VERSION: 8.0.2
+        SPLUNK_BUILD: a7f645ddaf91
+        SPLUNK_ADMIN_USERNAME: ${SPLUNK_ADMIN_USERNAME}
+        SPLUNK_ADMIN_PASSWORD: ${SPLUNK_ADMIN_PASSWORD}
+    image: ${REPO}/${IMAGE}:8.0.2-${BUILD_VERSION}
+    command: *command
+
+  8.0.1:
+    build:
+      context: .
+      args:
+        SPLUNK_VERSION: 8.0.1
+        SPLUNK_BUILD: 6db836e2fb9e
+        SPLUNK_ADMIN_USERNAME: ${SPLUNK_ADMIN_USERNAME}
+        SPLUNK_ADMIN_PASSWORD: ${SPLUNK_ADMIN_PASSWORD}
+    image: ${REPO}/${IMAGE}:8.0.1-${BUILD_VERSION}
+    command: *command
+
+  8.0.0:
+    build:
+      context: .
+      args:
+        SPLUNK_VERSION: 8.0.0
+        SPLUNK_BUILD: 1357bef0a7f6
+        SPLUNK_ADMIN_USERNAME: ${SPLUNK_ADMIN_USERNAME}
+        SPLUNK_ADMIN_PASSWORD: ${SPLUNK_ADMIN_PASSWORD}
+    image: ${REPO}/${IMAGE}:8.0.0-${BUILD_VERSION}
+    command: *command
+
+  7.3.6:
+    build:
+      context: .
+      args:
+        SPLUNK_VERSION: 7.3.6
+        SPLUNK_BUILD: 47d8552a4d84
+        SPLUNK_ADMIN_USERNAME: ${SPLUNK_ADMIN_USERNAME}
+        SPLUNK_ADMIN_PASSWORD: ${SPLUNK_ADMIN_PASSWORD}
+    image: ${REPO}/${IMAGE}:7.3.6-${BUILD_VERSION}
+    command: *command
+
+  7.3.5:
+    build:
+      context: .
+      args:
+        SPLUNK_VERSION: 7.3.5
+        SPLUNK_BUILD: 86fd62efc3d7
+        SPLUNK_ADMIN_USERNAME: ${SPLUNK_ADMIN_USERNAME}
+        SPLUNK_ADMIN_PASSWORD: ${SPLUNK_ADMIN_PASSWORD}
+    image: ${REPO}/${IMAGE}:7.3.5-${BUILD_VERSION}
+    command: *command
+
+  7.3.4.2:
+    build:
+      context: .
+      args:
+        SPLUNK_VERSION: 7.3.4.2
+        SPLUNK_BUILD: cb574b3d103e
+        SPLUNK_ADMIN_USERNAME: ${SPLUNK_ADMIN_USERNAME}
+        SPLUNK_ADMIN_PASSWORD: ${SPLUNK_ADMIN_PASSWORD}
+    image: ${REPO}/${IMAGE}:7.3.4.2-${BUILD_VERSION}
+    command: *command
+
+  7.3.4:
+    build:
+      context: .
+      args:
+        SPLUNK_VERSION: 7.3.4
+        SPLUNK_BUILD: 13e97039fb65
+        SPLUNK_ADMIN_USERNAME: ${SPLUNK_ADMIN_USERNAME}
+        SPLUNK_ADMIN_PASSWORD: ${SPLUNK_ADMIN_PASSWORD}
+    image: ${REPO}/${IMAGE}:7.3.4-${BUILD_VERSION}
+    command: *command
+
+  7.3.3:
+    build:
+      context: .
+      args:
+        SPLUNK_VERSION: 7.3.3
+        SPLUNK_BUILD: 7af3758d0d5e
+        SPLUNK_ADMIN_USERNAME: ${SPLUNK_ADMIN_USERNAME}
+        SPLUNK_ADMIN_PASSWORD: ${SPLUNK_ADMIN_PASSWORD}
+    image: ${REPO}/${IMAGE}:7.3.3-${BUILD_VERSION}
+    command: *command
+
+  7.3.2:
+    build:
+      context: .
+      args:
+        SPLUNK_VERSION: 7.3.2
+        SPLUNK_BUILD: c60db69f8e32
+        SPLUNK_ADMIN_USERNAME: ${SPLUNK_ADMIN_USERNAME}
+        SPLUNK_ADMIN_PASSWORD: ${SPLUNK_ADMIN_PASSWORD}
+    image: ${REPO}/${IMAGE}:7.3.2-${BUILD_VERSION}
+    command: *command
+
+  7.3.1.1:
+    build:
+      context: .
+      args:
+        SPLUNK_VERSION: 7.3.1.1
+        SPLUNK_BUILD: 7651b7244cf2
+        SPLUNK_ADMIN_USERNAME: ${SPLUNK_ADMIN_USERNAME}
+        SPLUNK_ADMIN_PASSWORD: ${SPLUNK_ADMIN_PASSWORD}
+    image: ${REPO}/${IMAGE}:7.3.1.1-${BUILD_VERSION}
+    command: *command
+
+  7.3.0:
+    build:
+      context: .
+      args:
+        SPLUNK_VERSION: 7.3.0
+        SPLUNK_BUILD: 657388c7a488
+        SPLUNK_ADMIN_USERNAME: ${SPLUNK_ADMIN_USERNAME}
+        SPLUNK_ADMIN_PASSWORD: ${SPLUNK_ADMIN_PASSWORD}
+    image: ${REPO}/${IMAGE}:7.3.0-${BUILD_VERSION}
+    command: *command
