@@ -1,7 +1,0 @@
-language: minimal
-
-services: docker
-
-script:
-  - docker-compose build
-  - docker image ls
